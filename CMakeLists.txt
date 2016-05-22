@@ -8,6 +8,7 @@ project (Intern)
 set (INTERN_LIB_NAME intern)
 
 set (PAGE_SIZE 4096 CACHE STRING "Page size for allocations")
+set (ALIGNMENT 8)
 option (MMAP_PAGES "Allocate pages with mmap(2)" OFF)
 option (INLINE_UNSIGNED "Inline unsigned integers into the ID" OFF)
 option (BUILD_STATIC "Build a static library" OFF)

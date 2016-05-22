@@ -1,3 +1,4 @@
 #define PAGE_SIZE @PAGE_SIZE@
+#cmakedefine ALIGNMENT @ALIGNMENT@
 #cmakedefine MMAP_PAGES
 #cmakedefine INLINE_UNSIGNED

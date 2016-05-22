@@ -141,12 +141,15 @@ static tree_node_t *create_node(struct strings *strings, uint32_t hash,
         return NULL;
     }
 
-    size_t len = strlen(string);
-    void *string_ptr = block_alloc(strings->strings, len + 1);
+    size_t size = strlen(string) + 1;
+    #ifdef ALIGNMENT
+      size = size + ALIGNMENT - (size % ALIGNMENT);
+    #endif
+    void *string_ptr = block_alloc(strings->strings, size);
     if (!string_ptr) {
         return NULL;
     }
-    memcpy(string_ptr, string, len + 1);
+    memcpy(string_ptr, string, size);
     node->string = (const char *)string_ptr;
 
     uint32_t *hash_ptr = block_alloc(strings->hashes, sizeof(*hash_ptr));

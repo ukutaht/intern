@@ -17,6 +17,7 @@ int main() {
         unsigned_string(buffer + 1, id);
         string_bytes += strlen(buffer);
         assert(strings_intern(strings, buffer) == id);
+        assert(strcmp(strings_lookup_id(strings, id), buffer) == 0);
     }
 
     string_bytes += count;
